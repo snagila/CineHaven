@@ -1,0 +1,7 @@
+#homepage {
+  height: 45vh;
+  background-image: url(../../assets/hero.png);
+
+  background-size: cover;
+  background-position: center;
+}
