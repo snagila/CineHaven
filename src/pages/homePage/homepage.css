@@ -5,3 +5,26 @@
   background-size: cover;
   background-position: center;
 }
+p {
+  color: whitesmoke;
+  text-shadow: 0.5px 0.5px bisque !important;
+}
+.formInputField {
+  background: black !important;
+  color: whitesmoke !important;
+  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.48) !important;
+}
+.formInputField::placeholder {
+  color: whitesmoke !important;
+  opacity: 0.8 !important;
+}
+.search-button {
+  background-color: black !important;
+  color: white !important;
+  border: 1px solid white !important;
+  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.48) !important;
+}
+.search-button:hover {
+  color: black !important;
+  background-color: white !important;
+}
