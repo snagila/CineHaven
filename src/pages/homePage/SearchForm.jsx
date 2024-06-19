@@ -1,34 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { Button, Form, InputGroup, Row } from "react-bootstrap";
+import { Button, Form, Row } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 function SearchForm() {
+  const [movie, setMovie] = useState("");
+  const navigate = useNavigate();
+
+  const handleOnChange = (e) => {
+    setMovie(e.target.value);
+  };
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    navigate(`/searchResult`);
+  };
   return (
     <>
-      <div className="hero">
-        <div className=" d-flex flex-column justify-content-center align-items-center">
-          <p style={{ fontSize: "3rem" }} className=" m-0">
-            Welcome
-          </p>
-          <p>Your Gateway to Cinematic Wonders</p>
-          <Form className="d-flex gap-4">
-            <Row className="col-md-9">
-              <Form.Group controlId="exampleForm.ControlInput1">
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Movie Title"
-                  className="px-5 formInputField"
-                  name="inputfield"
-                />
-              </Form.Group>
-            </Row>
-            <Row className="col-md-3 search-row ">
-              <Button className="px-4 search-button" type="submit">
-                Search
-              </Button>
-            </Row>
-          </Form>
-        </div>
+      <div className=" d-flex flex-column justify-content-center align-items-center">
+        <p style={{ fontSize: "3rem" }} className=" m-0">
+          Welcome
+        </p>
+        <p>Your Gateway to Cinematic Wonders</p>
+        <Form className="form d-flex gap-4 " onSubmit={handleOnSubmit}>
+          <Row className="col-md-9">
+            <Form.Control
+              type="text"
+              placeholder="Enter Movie Title"
+              className="px-5 formInputField"
+              name="inputfield"
+              onChange={handleOnChange}
+            />
+          </Row>
+          <Row className="col-md-3 search-row  ">
+            <Button className="px-4 search-button " type="submit">
+              Search
+            </Button>
+          </Row>
+        </Form>
       </div>
     </>
   );

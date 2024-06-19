@@ -1,11 +1,16 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import "./Reusuable-components/header/header.css";
 import HomePage from "./pages/homePage/HomePage";
+import SearchResultPage from "./pages/searchResult/SearchResultPage";
 
 function App() {
   return (
     <>
-      <HomePage />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/searchResult" element={<SearchResultPage />} />
+      </Routes>
     </>
   );
 }

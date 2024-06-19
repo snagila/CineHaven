@@ -1,4 +1,7 @@
-#homepage {
+.homePage {
+  height: 100vh;
+}
+#homepageHero {
   height: 45vh;
   background-image: url(../../assets/hero.png);
 
@@ -26,5 +29,18 @@ p {
 }
 .search-button:hover {
   color: black !important;
-  background-color: white !important;
+  background-color: crimson !important;
+}
+@media screen and (max-width: 1200px) {
+  .form {
+    flex-direction: column;
+    flex-grow: 1 !important;
+  }
+  .formInputField {
+    width: 100%;
+    max-width: 100%;
+  }
+  #homepageHero {
+    height: 55vh;
+  }
 }
