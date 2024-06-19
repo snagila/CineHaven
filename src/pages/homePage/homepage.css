@@ -43,4 +43,7 @@ p {
   #homepageHero {
     height: 55vh;
   }
+  .search-button {
+    width: 100% !important;
+  }
 }

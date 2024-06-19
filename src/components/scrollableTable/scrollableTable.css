@@ -39,8 +39,8 @@ h2 {
   display: grid;
   grid-template-rows: min-content;
   gap: var(--_spacer);
-  padding: var(--_spacer);
-  background: grey;
+
+  background: black;
   border-radius: 10px;
 }
 

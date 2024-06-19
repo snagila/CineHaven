@@ -4,15 +4,16 @@ import { Button, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 function SearchForm() {
-  const [movie, setMovie] = useState("");
+  const [movieName, setMovieName] = useState("");
   const navigate = useNavigate();
 
   const handleOnChange = (e) => {
-    setMovie(e.target.value);
+    setMovieName(e.target.value);
   };
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    navigate(`/searchResult`);
+
+    navigate(`/searchResult/${movieName}`);
   };
   return (
     <>
@@ -28,6 +29,7 @@ function SearchForm() {
               placeholder="Enter Movie Title"
               className="px-5 formInputField"
               name="inputfield"
+              required
               onChange={handleOnChange}
             />
           </Row>

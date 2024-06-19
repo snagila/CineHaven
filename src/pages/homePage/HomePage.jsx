@@ -3,20 +3,21 @@ import "./homepage.css";
 import Header from "../../Reusuable-components/header/Header";
 import SearchForm from "./SearchForm";
 import ScrollTable from "../../components/scrollableTable/ScrollableTable";
-import axios from "axios";
+import { API_KEY } from "../../API_KEY";
 
 const HomePage = () => {
-  const API_KEY = "1247f1d5fcdc0ac4053a4acf888b0234";
-  const [release, setRelease] = useState();
-  const movie_url = `https://api.themoviedb.org/3/movie/157336?api_key=${API_KEY}`;
+  const [upComingMovies, setUpComingMovies] = useState();
   const upcomingUrl = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}`;
-
-  const fetchMovie = async () => {
-    const upcomingMovies = await fetch(upcomingUrl);
+  const fetchUpComingMovies = async () => {
+    const response = await fetch(upcomingUrl);
+    const data = await response.json();
+    setUpComingMovies(data.results);
   };
+
   useEffect(() => {
-    fetchMovie();
+    fetchUpComingMovies();
   }, []);
+
   return (
     <>
       <div className="homePage">
@@ -29,7 +30,7 @@ const HomePage = () => {
             <SearchForm />
           </div>
         </div>
-        <ScrollTable />
+        <ScrollTable title={"UpComing Movies"} movieArray={upComingMovies} />
       </div>
     </>
   );

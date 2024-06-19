@@ -6,7 +6,7 @@
   gap: 1rem;
 }
 .movieImage {
-  height: 50vh;
+  height: 45vh;
   width: 50%;
   background: black;
   position: relative;
@@ -15,9 +15,16 @@
   align-items: center;
   justify-content: center;
 }
+.movieImg {
+  width: 100%;
+  height: 40vh;
+  position: absolute;
+  object-position: center;
+  object-fit: cover;
+}
 .movieDiscription {
-  height: 50vh;
-  background: yellow;
+  height: 45vh;
+
   width: 50%;
   padding: 2rem;
   display: flex;
@@ -26,17 +33,38 @@
   color: whitesmoke;
   background: black;
 }
-
-.movieImg {
-  width: 100%;
-  height: 40vh;
-  position: absolute;
-  object-position: center;
-  object-fit: cover;
+.buttons {
+  display: flex;
+  gap: 5px;
 }
 .playBtn {
   width: 30%;
-  background: red;
+  background: bisque;
   padding: 0.5em;
   border-radius: 10px;
+}
+.comedyBtn {
+  width: 30%;
+  background: yellow;
+
+  border-radius: 10px;
+}
+.actionBtn {
+  width: 30%;
+  background: red;
+
+  border-radius: 10px;
+}
+@media screen and (max-width: 1200px) {
+  .searchResult {
+    display: flex;
+    flex-direction: column;
+  }
+  .movieImage {
+    width: 100%;
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; */
+  }
 }

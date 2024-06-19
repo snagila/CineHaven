@@ -9,7 +9,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/searchResult" element={<SearchResultPage />} />
+        <Route path="/searchResult/:id" element={<SearchResultPage />} />
       </Routes>
     </>
   );
