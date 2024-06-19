@@ -1,17 +1,28 @@
 .mainTable {
   background: #000;
-  height: 90vh;
+
   color: whitesmoke;
 }
 .movieTable {
   padding-left: 4rem;
   padding-right: 4rem;
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
 }
 .movieCard {
   height: 30rem;
   width: 20%;
-  border: 3px solid red;
+
+  flex-grow: 1;
+}
+.image {
+  height: 22rem;
 }
 .tableImage {
   width: 100%;
+  height: 25rem;
+}
+* {
+  background: #000;
 }
