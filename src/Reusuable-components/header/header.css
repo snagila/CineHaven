@@ -43,6 +43,7 @@ nav {
   font-size: 2rem;
   font-weight: bolder;
   color: bisque;
+  text-decoration: none;
 }
 
 .logo:hover {

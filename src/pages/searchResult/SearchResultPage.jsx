@@ -19,7 +19,6 @@ const SearchResultPage = () => {
     setSearchedMovieArr(data.results);
     setSearchedMovie(singleMovie);
   };
-  console.log(searchedMovie);
 
   useEffect(() => {
     fetchMovie();

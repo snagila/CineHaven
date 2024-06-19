@@ -9,16 +9,19 @@ const Header = () => {
   return (
     <>
       <nav id="desktop-nav">
-        <div className="logo">CineHaven</div>
+        <Link to="/">
+          <div className="logo"> CineHaven</div>
+        </Link>
+
         <div>
           <ul className="nav-links">
             <li>
-              <Link to="/experience" className="custom-link">
+              <Link to="/movieTable" className="custom-link">
                 All Movies
               </Link>
             </li>
             <li>
-              <Link to="/projects" className="custom-link">
+              <Link to="/movieTable" className="custom-link">
                 Action Movies
               </Link>
             </li>

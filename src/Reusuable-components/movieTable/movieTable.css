@@ -1,0 +1,17 @@
+.mainTable {
+  background: #000;
+  height: 90vh;
+  color: whitesmoke;
+}
+.movieTable {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+.movieCard {
+  height: 30rem;
+  width: 20%;
+  border: 3px solid red;
+}
+.tableImage {
+  width: 100%;
+}

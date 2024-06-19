@@ -9,8 +9,8 @@ const ScrollTable = ({ title, movieArray }) => {
 
         <div class="media-scroller snaps-inline">
           {movieArray &&
-            movieArray.map((item) => (
-              <div class="media-element">
+            movieArray.map((item, i) => (
+              <div class="media-element" key={i}>
                 <img
                   src={"https://image.tmdb.org/t/p/original" + item.poster_path}
                   alt=""
