@@ -4,15 +4,18 @@ import "./Reusuable-components/header/header.css";
 import HomePage from "./pages/homePage/HomePage";
 import SearchResultPage from "./pages/searchResult/SearchResultPage";
 import MovieTable from "./Reusuable-components/movieTable/MovieTable";
+import { DataProvider } from "./DataContext";
 
 function App() {
   return (
     <>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/searchResult/:id" element={<SearchResultPage />} />
-        <Route path="/movieTable" element={<MovieTable />} />
-      </Routes>
+      <DataProvider>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/searchResult/:id" element={<SearchResultPage />} />
+          <Route path="/allMovies" element={<MovieTable />} />
+        </Routes>
+      </DataProvider>
     </>
   );
 }

@@ -41,8 +41,8 @@ const SearchResultPage = () => {
             <h3>{searchedMovie.title}</h3>
             <div className="buttons">
               <button className="playBtn">Play Trailer</button>
-              <button className="comedyBtn"> + Action</button>
-              <button className="actionBtn">+Comedy</button>
+              <button className="comedyBtn"> + Comedy</button>
+              <button className="actionBtn">+ Action</button>
             </div>
 
             <div>

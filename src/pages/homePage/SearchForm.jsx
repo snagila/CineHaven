@@ -12,7 +12,6 @@ function SearchForm() {
   };
   const handleOnSubmit = (e) => {
     e.preventDefault();
-
     navigate(`/searchResult/${movieName}`);
   };
   return (
