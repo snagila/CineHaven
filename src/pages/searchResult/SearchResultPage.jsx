@@ -10,7 +10,6 @@ import { Spinner } from "react-bootstrap";
 const SearchResultPage = () => {
   const {} = useContext(MyContext);
   const { id } = useParams();
-  console.log(id);
 
   const {
     searchedMovieArr,
@@ -24,6 +23,7 @@ const SearchResultPage = () => {
   } = useContext(MyContext);
 
   const searchMovieUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${id}`;
+  const movieVideoUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`;
 
   const fetchMovie = async () => {
     try {
@@ -39,6 +39,11 @@ const SearchResultPage = () => {
     }
   };
 
+  const fetchMovieVideoUrl = async () => {
+    const response = await fetch(movieVideoUrl);
+    const data = await response.json();
+    console.log(data);
+  };
   const duplicateMoviesPrevention = allMovies.find(
     (item) => item.id === searchedMovie.id
   );
@@ -71,7 +76,9 @@ const SearchResultPage = () => {
                 <h3>{searchedMovie.title}</h3>
               )}
               <div className="buttons">
-                <button className="playBtn">Play Trailer</button>
+                <button className="playBtn" onClick={fetchMovieVideoUrl}>
+                  Play Trailer
+                </button>
                 <button
                   className="comedyBtn"
                   disabled={duplicateMoviesPrevention}
