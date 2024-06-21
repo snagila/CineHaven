@@ -14,9 +14,9 @@ const HomePage = () => {
     setUpComingMovies(data.results);
   };
 
-  // useEffect(() => {
-  //   fetchUpComingMovies();
-  // }, []);
+  useEffect(() => {
+    fetchUpComingMovies();
+  }, []);
 
   return (
     <>

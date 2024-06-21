@@ -10,6 +10,7 @@ export const MyProvider = ({ children }) => {
   const [actionMovies, setActionMovies] = useState([]);
   const [comedyMovies, setComedyMovies] = useState([]);
   const [allMovies, setAllMovies] = useState([]);
+  console.log(comedyMovies);
 
   const handleOnClick = (genre) => {
     const movieWithGenre = { ...searchedMovie, genre: genre };
@@ -31,7 +32,9 @@ export const MyProvider = ({ children }) => {
         searchedMovie,
         setSearchedMovie,
         actionMovies,
+        setActionMovies,
         comedyMovies,
+        setComedyMovies,
         allMovies,
         setAllMovies,
       }}

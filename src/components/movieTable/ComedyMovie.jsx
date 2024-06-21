@@ -6,6 +6,7 @@ import { MyContext } from "../../DataContext";
 
 const MovieTable = () => {
   const { comedyMovies, setComedyMovies } = useContext(MyContext);
+
   const handleOnDelete = (id) => {
     const movieListAfterDelete = comedyMovies.filter((item) => item.id !== id);
     setComedyMovies(movieListAfterDelete);
@@ -16,12 +17,13 @@ const MovieTable = () => {
       <Header />
       <div className="mainTable">
         <div className="title container">
-          <h2>All Movies</h2>
+          <h2>Comedy Movies</h2>
           <hr />
         </div>
         <div className="movieTable container">
           {comedyMovies.map((item, i) => (
             <div className="movieCard" key={i}>
+              {console.log(item.id)}
               <div className="image">
                 <img
                   src={"https://image.tmdb.org/t/p/original" + item.poster_path}
