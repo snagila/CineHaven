@@ -3,19 +3,20 @@ import "./App.css";
 import "./Reusuable-components/header/header.css";
 import HomePage from "./pages/homePage/HomePage";
 import SearchResultPage from "./pages/searchResult/SearchResultPage";
-import MovieTable from "./Reusuable-components/movieTable/MovieTable";
-import { DataProvider } from "./DataContext";
+import AllMovies from "./components/movieTable/AllMovies";
+import ActionMovies from "./components/movieTable/ActionMovies";
+import ComedyMovies from "./components/movieTable/ComedyMovie";
 
 function App() {
   return (
     <>
-      <DataProvider>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/searchResult/:id" element={<SearchResultPage />} />
-          <Route path="/allMovies" element={<MovieTable />} />
-        </Routes>
-      </DataProvider>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/searchResult/:id" element={<SearchResultPage />} />
+        <Route path="/allMovies" element={<AllMovies />} />
+        <Route path="/actionMovies" element={<ActionMovies />} />
+        <Route path="/comedyMovies" element={<ComedyMovies />} />
+      </Routes>
     </>
   );
 }

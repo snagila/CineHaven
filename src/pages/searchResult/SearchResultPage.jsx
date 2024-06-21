@@ -1,16 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./searchResultPage.css";
 import Header from "../../Reusuable-components/header/Header";
 import ScrollTable from "../../components/scrollableTable/ScrollableTable";
 import { API_KEY } from "../../API_KEY";
 import { useParams } from "react-router-dom";
+import { MyContext } from "../../DataContext";
 
 const SearchResultPage = () => {
   const { id } = useParams();
+  const {
+    searchedMovieArr,
+    setSearchedMovieArr,
+    handleOnClick,
+    searchedMovie,
+    setSearchedMovie,
+    allMovies,
+  } = useContext(MyContext);
 
   const searchMovieUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${id}`;
-  const [searchedMovieArr, setSearchedMovieArr] = useState([]);
-  const [searchedMovie, setSearchedMovie] = useState({});
 
   const fetchMovie = async () => {
     const response = await fetch(searchMovieUrl);
@@ -20,6 +27,9 @@ const SearchResultPage = () => {
     setSearchedMovie(singleMovie);
   };
 
+  const duplicateMoviesPrevention = allMovies.find(
+    (item) => item.id === searchedMovie.id
+  );
   useEffect(() => {
     fetchMovie();
   }, [id]);
@@ -38,17 +48,31 @@ const SearchResultPage = () => {
             />
           </div>
           <div className="movieDiscription">
-            <h3>{searchedMovie.title}</h3>
+            {duplicateMoviesPrevention ? (
+              <h3>{searchedMovie.title} (Movie in your list)</h3>
+            ) : (
+              <h3>{searchedMovie.title}</h3>
+            )}
             <div className="buttons">
               <button className="playBtn">Play Trailer</button>
-              <button className="comedyBtn"> + Comedy</button>
-              <button className="actionBtn">+ Action</button>
+              <button
+                className="comedyBtn"
+                disabled={duplicateMoviesPrevention}
+                onClick={() => handleOnClick("comedy")}
+              >
+                + Comedy
+              </button>
+              <button
+                className="actionBtn"
+                disabled={duplicateMoviesPrevention}
+                onClick={() => handleOnClick("action")}
+              >
+                + Action
+              </button>
             </div>
-
             <div>
               <h4>Year :</h4> {searchedMovie.release_date}
             </div>
-
             <div>
               <h4>Plot : </h4>
               {searchedMovie.overview}

@@ -16,17 +16,17 @@ const Header = () => {
         <div>
           <ul className="nav-links">
             <li>
-              <Link to="/movieTable" className="custom-link">
+              <Link to="/allMovies" className="custom-link">
                 All Movies
               </Link>
             </li>
             <li>
-              <Link to="/movieTable" className="custom-link">
+              <Link to="/actionMovies" className="custom-link">
                 Action Movies
               </Link>
             </li>
             <li>
-              <Link to="/contact" className="custom-link">
+              <Link to="/comedyMovies" className="custom-link">
                 Comedy Movies
               </Link>
             </li>
