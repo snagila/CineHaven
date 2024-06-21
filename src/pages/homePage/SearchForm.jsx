@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
-
+import React, { useContext, useEffect } from "react";
 import { Button, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { MyContext } from "../../DataContext";
 
 function SearchForm() {
-  const [movieName, setMovieName] = useState("");
+  const { movieName, setMovieName } = useContext(MyContext);
   const navigate = useNavigate();
 
   const handleOnChange = (e) => {
@@ -14,6 +14,7 @@ function SearchForm() {
     e.preventDefault();
     navigate(`/searchResult/${movieName}`);
   };
+
   return (
     <>
       <div className=" d-flex flex-column justify-content-center align-items-center">

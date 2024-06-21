@@ -31,6 +31,13 @@ p {
   color: black !important;
   background-color: crimson !important;
 }
+.spinner {
+  height: 36px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 @media screen and (max-width: 1200px) {
   .form {
     flex-direction: column;

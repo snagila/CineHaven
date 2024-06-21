@@ -1,16 +1,15 @@
 // DataContext.js
 import React, { createContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
-
 export const MyContext = createContext();
 
 export const MyProvider = ({ children }) => {
+  const [movieName, setMovieName] = useState("");
   const [searchedMovieArr, setSearchedMovieArr] = useState([]);
   const [searchedMovie, setSearchedMovie] = useState({});
   const [actionMovies, setActionMovies] = useState([]);
   const [comedyMovies, setComedyMovies] = useState([]);
   const [allMovies, setAllMovies] = useState([]);
-  console.log(comedyMovies);
+  const [isLoading, setIsLoading] = useState();
 
   const handleOnClick = (genre) => {
     const movieWithGenre = { ...searchedMovie, genre: genre };
@@ -26,6 +25,8 @@ export const MyProvider = ({ children }) => {
   return (
     <MyContext.Provider
       value={{
+        movieName,
+        setMovieName,
         searchedMovieArr,
         setSearchedMovieArr,
         handleOnClick,
@@ -37,6 +38,8 @@ export const MyProvider = ({ children }) => {
         setComedyMovies,
         allMovies,
         setAllMovies,
+        isLoading,
+        setIsLoading,
       }}
     >
       {children}
