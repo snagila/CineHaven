@@ -1,10 +1,6 @@
-.homePage {
-  height: 100vh;
-}
 #homepageHero {
   height: 45vh;
   background-image: url(../../assets/hero.png);
-
   background-size: cover;
   background-position: center;
 }
@@ -12,45 +8,11 @@ p {
   color: whitesmoke;
   text-shadow: 0.5px 0.5px bisque !important;
 }
-.formInputField {
-  background: black !important;
-  color: whitesmoke !important;
-  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.48) !important;
-}
-.formInputField::placeholder {
-  color: whitesmoke !important;
-  opacity: 0.8 !important;
-}
-.search-button {
-  background-color: black !important;
-  color: white !important;
-  border: 1px solid white !important;
-  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.48) !important;
-}
-.search-button:hover {
-  color: black !important;
-  background-color: crimson !important;
-}
+
 .spinner {
   height: 36px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-@media screen and (max-width: 1200px) {
-  .form {
-    flex-direction: column;
-    flex-grow: 1 !important;
-  }
-  .formInputField {
-    width: 100%;
-    max-width: 100%;
-  }
-  #homepageHero {
-    height: 55vh;
-  }
-  .search-button {
-    width: 100% !important;
-  }
 }

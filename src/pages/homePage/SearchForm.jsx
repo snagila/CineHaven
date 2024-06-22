@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from "react";
-import { Button, Form, Row } from "react-bootstrap";
+import React, { useContext } from "react";
+import { Button, Col, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { MyContext } from "../../DataContext";
 
@@ -18,28 +18,30 @@ function SearchForm() {
   return (
     <>
       <div className=" d-flex flex-column justify-content-center align-items-center">
-        <p style={{ fontSize: "3rem" }} className=" m-0">
-          Welcome
-        </p>
+        <p style={{ fontSize: "3rem" }}>Welcome</p>
+
         <p>Your Gateway to Cinematic Wonders</p>
-        <Form className="form d-flex gap-4 " onSubmit={handleOnSubmit}>
-          <Row className="col-md-9">
+      </div>
+      <Form onSubmit={handleOnSubmit}>
+        <Row className="g-2">
+          <Col xs={12} md={8} xl={8}>
             <Form.Control
               type="text"
               placeholder="Enter Movie Title"
-              className="px-5 formInputField"
               name="inputfield"
               required
               onChange={handleOnChange}
             />
-          </Row>
-          <Row className="col-md-3 search-row  ">
-            <Button className="px-4 search-button " type="submit">
-              Search
-            </Button>
-          </Row>
-        </Form>
-      </div>
+          </Col>
+          <Col xs={12} md={4} xl={4}>
+            <div className="d-grid">
+              <Button variant="primary" type="submit">
+                Search
+              </Button>
+            </div>
+          </Col>
+        </Row>
+      </Form>
     </>
   );
 }
