@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./searchResultPage.css";
-import Header from "../../Reusuable-components/header/Header";
 import ScrollTable from "../../components/scrollableTable/ScrollableTable";
 import { API_KEY } from "../../API_KEY";
 import { useParams } from "react-router-dom";
 import { MyContext } from "../../DataContext";
 import { Spinner } from "react-bootstrap";
+import Header1 from "../../Reusuable-components/Header1";
 
 const SearchResultPage = () => {
   const {} = useContext(MyContext);
@@ -53,7 +53,7 @@ const SearchResultPage = () => {
   return (
     <>
       <div className="result">
-        <Header />
+        <Header1 />
         {isLoading === true ? (
           <div className="spinner mt-2">
             <Spinner animation="border" variant="danger" />

@@ -16,3 +16,6 @@ p {
   align-items: center;
   justify-content: center;
 }
+.no-underline {
+  text-decoration: none;
+}

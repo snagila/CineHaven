@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import "./movieTable.css";
-
-import Header from "../../Reusuable-components/header/Header";
+import Header1 from "../../Reusuable-components/Header1";
 import { MyContext } from "../../DataContext";
 
 const MovieTable = () => {
@@ -14,7 +13,7 @@ const MovieTable = () => {
 
   return (
     <>
-      <Header />
+      <Header1 />
       <div className="mainTable">
         <div className="title container">
           <h2>Comedy Movies</h2>

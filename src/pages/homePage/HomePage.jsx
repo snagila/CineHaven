@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import "./homepage.css";
-import Header from "../../Reusuable-components/header/Header";
 import SearchForm from "./SearchForm";
 import ScrollTable from "../../components/scrollableTable/ScrollableTable";
 import { API_KEY } from "../../API_KEY";
 import { MyContext } from "../../DataContext";
 import { Spinner } from "react-bootstrap";
+import Header1 from "../../Reusuable-components/Header1";
+import "./homepage.css";
 
 const HomePage = () => {
   const { isLoading, setIsLoading } = useContext(MyContext);
@@ -31,7 +31,7 @@ const HomePage = () => {
   return (
     <>
       <div className="homePage">
-        <Header />
+        <Header1 />
         <div
           id="homepageHero"
           className="d-flex align-items-center justify-content-center"

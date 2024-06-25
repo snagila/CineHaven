@@ -17,7 +17,7 @@ function SearchForm() {
 
   return (
     <>
-      <div className=" d-flex flex-column justify-content-center align-items-center">
+      {/* <div className=" d-flex flex-column justify-content-center align-items-center">
         <p style={{ fontSize: "3rem" }}>Welcome</p>
 
         <p>Your Gateway to Cinematic Wonders</p>
@@ -41,7 +41,7 @@ function SearchForm() {
             </div>
           </Col>
         </Row>
-      </Form>
+      </Form> */}
     </>
   );
 }

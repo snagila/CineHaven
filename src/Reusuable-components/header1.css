@@ -1,0 +1,11 @@
+.whole-header {
+  height: 15vh !important;
+  background: #000 !important;
+  color: whitesmoke !important;
+  opacity: 1 !important;
+}
+
+.title {
+  color: goldenrod !important;
+  font-weight: bolder;
+}

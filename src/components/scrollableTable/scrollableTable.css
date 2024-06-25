@@ -1,31 +1,26 @@
 .scrollTable {
   height: 20vh;
-  background: #000;
+  background: lightgray;
 }
 h2 {
   padding: 1.5rem;
-  color: whitesmoke !important;
+  color: black !important;
 }
 
-/*  INDIVIDUAL IMAGE SCROLLING*/
-
 .media-scroller {
-  --_spacer: 1rem;
   display: grid;
-  gap: var(--_spacer);
+  gap: 1rem;
   grid-auto-flow: column;
   grid-auto-columns: 21%;
-  background: #000;
-  padding: 0 var(--_spacer) var(--_spacer);
-
+  background: lightgray;
+  padding: 0 1rem 1rem;
   overflow-x: auto;
   overscroll-behavior-inline: contain;
 }
 
-/* THIS IS FOR BOTH */
 .snaps-inline {
   scroll-snap-type: inline mandatory;
-  scroll-padding-inline: var(--_spacer, 1rem);
+  scroll-padding-inline: 1rem;
 }
 
 .snaps-inline > * {
@@ -34,14 +29,14 @@ h2 {
 .media-element {
   display: grid;
   grid-template-rows: min-content;
-  gap: var(--_spacer);
-
-  background: black;
-  border-radius: 10px;
+  gap: 1rem;
+  background: rgb(58, 56, 56);
 }
 
 .media-element > img {
   inline-size: 100%;
   aspect-ratio: 16 / 9;
+
   object-fit: cover;
+  object-position: center;
 }
