@@ -2,15 +2,14 @@ import React, { useContext } from "react";
 import "./scrollableTable.css";
 import { MyContext } from "../../DataContext";
 import { Link } from "react-router-dom";
-import { Button, Card } from "react-bootstrap";
-import pic from "../../assets/hero.png";
+import { Card } from "react-bootstrap";
 
-const ScrollTable = ({ title, movie }) => {
+const ScrollTable = ({ movie }) => {
   console.log(movie);
   return (
     <>
       <div className="table snaps-inline ">
-        {movie.map((item, i) => (
+        {movie?.map((item, i) => (
           <Card style={{ width: "18rem", background: "black" }} className="img">
             <Card.Img
               style={{}}
