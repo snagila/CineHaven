@@ -8,6 +8,8 @@ import Header1 from "../../Reusuable-components/Header1";
 import "./homepage.css";
 import MovieCard from "../../components/scrollableTable/MovieCard";
 
+import CustomCarousel from "./CustomCarousel";
+
 const HomePage = () => {
   const { isLoading, setIsLoading } = useContext(MyContext);
   const [upComingMovies, setUpComingMovies] = useState([]);
@@ -32,7 +34,8 @@ const HomePage = () => {
   return (
     <>
       <Header1 />
-      <div id="homepageHero"></div>
+      {/* <div id="homepageHero"></div> */}
+      <CustomCarousel movie={upComingMovies} />
       <ScrollTable movie={upComingMovies} />
       {/* <MovieCard movie={upComingMovies} /> */}
     </>
