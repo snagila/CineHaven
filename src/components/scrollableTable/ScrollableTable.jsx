@@ -2,30 +2,22 @@ import React, { useContext } from "react";
 import "./scrollableTable.css";
 import { MyContext } from "../../DataContext";
 import { Link } from "react-router-dom";
+import { Button, Card } from "react-bootstrap";
+import pic from "../../assets/hero.png";
 
-const ScrollTable = ({ title, movieArray }) => {
+const ScrollTable = ({ title, movie }) => {
+  console.log(movie);
   return (
     <>
-      <div className="scrollTable">
-        <h2>{title}</h2>
-
-        <div class="media-scroller snaps-inline">
-          {movieArray.map((item, i) => (
-            <Link
-              to={`/searchResult/${item.title}`}
-              className="no-underline"
-              key={i}
-            >
-              <div className="media-element">
-                <img
-                  src={"https://image.tmdb.org/t/p/original" + item.poster_path}
-                  alt=""
-                />
-                <p class="title">{item.title}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
+      <div className="table snaps-inline ">
+        {movie.map((item, i) => (
+          <Card style={{ width: "18rem", background: "black" }} className="img">
+            <Card.Img
+              style={{}}
+              src={"https://image.tmdb.org/t/p/original" + item.poster_path}
+            />
+          </Card>
+        ))}
       </div>
     </>
   );

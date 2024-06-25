@@ -1,42 +1,26 @@
-.scrollTable {
-  height: 20vh;
-  background: lightgray;
-}
-h2 {
-  padding: 1.5rem;
-  color: black !important;
-}
-
-.media-scroller {
+.table {
   display: grid;
-  gap: 1rem;
   grid-auto-flow: column;
-  grid-auto-columns: 21%;
-  background: lightgray;
-  padding: 0 1rem 1rem;
-  overflow-x: auto;
-  overscroll-behavior-inline: contain;
+  overflow-x: scroll;
+  height: 43.5vh;
+  padding-left: 0.5rem;
+  background: #000;
+  gap: 1rem;
+}
+.table::-webkit-scrollbar {
+  display: none;
+}
+img {
+  object-position: center;
+  object-fit: contain;
+  width: 100% !important;
 }
 
 .snaps-inline {
   scroll-snap-type: inline mandatory;
-  scroll-padding-inline: 1rem;
+  scroll-padding-inline: var(--_spacer, 1rem);
 }
 
 .snaps-inline > * {
   scroll-snap-align: start;
-}
-.media-element {
-  display: grid;
-  grid-template-rows: min-content;
-  gap: 1rem;
-  background: rgb(58, 56, 56);
-}
-
-.media-element > img {
-  inline-size: 100%;
-  aspect-ratio: 16 / 9;
-
-  object-fit: cover;
-  object-position: center;
 }
