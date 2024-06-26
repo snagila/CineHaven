@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import "./movieTable.css";
-import Header1 from "../../Reusuable-components/Header1";
+
 import { MyContext } from "../../DataContext";
+import Header1 from "../../Reusuable-components/header/Header1";
 
 const MovieTable = () => {
   const { actionMovies, setActionMovies } = useContext(MyContext);

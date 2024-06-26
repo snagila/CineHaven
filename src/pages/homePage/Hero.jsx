@@ -1,0 +1,17 @@
+import React from "react";
+import { API_KEY } from "../../API_KEY";
+import PlayTrailer from "../../Reusuable-components/playTrailer/PlayTrailer";
+
+const Hero = ({ movie }) => {
+  const randomNumber = Math.floor(Math.random() * 20);
+  const randomMovie = movie[randomNumber]?.id;
+  const movieVideoUrl = `https://api.themoviedb.org/3/movie/${randomMovie?.id}/videos?api_key=${API_KEY}`;
+
+  return (
+    <>
+      <PlayTrailer id={randomMovie} />
+    </>
+  );
+};
+
+export default Hero;

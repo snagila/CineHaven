@@ -5,7 +5,7 @@ import { API_KEY } from "../../API_KEY";
 import { useParams } from "react-router-dom";
 import { MyContext } from "../../DataContext";
 import { Spinner } from "react-bootstrap";
-import Header1 from "../../Reusuable-components/Header1";
+import Header1 from "../../Reusuable-components/header/Header1";
 
 const SearchResultPage = () => {
   const {} = useContext(MyContext);

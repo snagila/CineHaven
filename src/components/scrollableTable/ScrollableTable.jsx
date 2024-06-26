@@ -5,15 +5,19 @@ import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
 
 const ScrollTable = ({ movie }) => {
-  console.log(movie);
   return (
     <>
       <div className="table snaps-inline ">
         {movie?.map((item, i) => (
-          <Card style={{ width: "18rem", background: "black" }} className="img">
+          <Card
+            style={{ width: "18rem", background: "black" }}
+            className="img"
+            key={i}
+          >
             <Card.Img
               style={{}}
               src={"https://image.tmdb.org/t/p/original" + item.poster_path}
+              className="main-img"
             />
           </Card>
         ))}

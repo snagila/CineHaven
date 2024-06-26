@@ -2,8 +2,8 @@
   display: grid;
   grid-auto-flow: column;
   overflow-x: scroll;
-  height: 43.5vh;
-  padding-left: 0.5rem;
+  height: 360px;
+  padding: 5px;
   background: #000;
   gap: 1rem;
 }
@@ -12,8 +12,13 @@
 }
 img {
   object-position: center;
-  object-fit: contain;
+  object-fit: cover;
   width: 100% !important;
+  height: 350px;
+  border-radius: 50px;
+}
+.main-img {
+  width: 100%;
 }
 
 .snaps-inline {

@@ -7,7 +7,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import "./header1.css";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { MyContext } from "../DataContext";
+import { MyContext } from "../../DataContext";
 
 function Header1() {
   const { movieName, setMovieName } = useContext(MyContext);
@@ -34,7 +34,7 @@ function Header1() {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <NavDropdown title="" id="navbarScrollingDropdown">
+              <NavDropdown title="" id="navbarScrollingDropdown" md={6}>
                 <NavDropdown.Item href="#action3">
                   Action Movies
                 </NavDropdown.Item>
@@ -45,7 +45,7 @@ function Header1() {
                 <NavDropdown.Item href="#action5">All Movies</NavDropdown.Item>
               </NavDropdown>
             </Nav>
-            <Form className="d-flex" onSubmit={handleOnSubmit}>
+            <Form className="d-flex " onSubmit={handleOnSubmit} md={6}>
               <Form.Control
                 type="search"
                 placeholder="Enter Movie Title"
