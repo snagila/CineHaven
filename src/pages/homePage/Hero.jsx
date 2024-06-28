@@ -11,7 +11,7 @@ const Hero = ({ movie }) => {
     <>
       <div style={{ background: "black" }}>
         <div style={{ padding: "2rem" }}>
-          <PlayTrailer id={randomMovie} />
+          <PlayTrailer id={randomMovie} sound={1} />
         </div>
       </div>
     </>

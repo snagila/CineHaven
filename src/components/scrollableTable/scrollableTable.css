@@ -1,6 +1,7 @@
 .table {
   display: grid;
   grid-auto-flow: column;
+  grid-column-start: auto;
   overflow-x: scroll;
   height: 360px;
   padding: 5px;

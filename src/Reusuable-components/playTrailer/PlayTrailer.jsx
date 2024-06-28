@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { API_KEY } from "../../API_KEY";
 import "./playTrailer.css";
-import { Container } from "react-bootstrap";
 
-const PlayTrailer = ({ id }) => {
-  const [movieDetail, setMovieDetail] = useState({});
+const PlayTrailer = ({ id, sound }) => {
   const [video_key, setVideo_key] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
   const searchMovieurl = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
   const movieVideoUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`;
 
@@ -43,12 +40,15 @@ const PlayTrailer = ({ id }) => {
         >
           <iframe
             width="100%"
-            src={`https://www.youtube.com/embed/${video_key}?autoplay=1&mute=1&loop=1`}
+            src={`https://www.youtube.com/embed/${video_key}?autoplay=1&mute=${sound}&loop=1`}
             allowFullScreen
+            allow="autoplay"
           ></iframe>
         </div>
       ) : (
-        "hello"
+        <h1 className="text-center error-message">
+          sorry this movie video is not available right now
+        </h1>
       )}
     </>
   );

@@ -3,12 +3,13 @@ import "./searchResultPage.css";
 import ScrollTable from "../../components/scrollableTable/ScrollableTable";
 import { API_KEY } from "../../API_KEY";
 import { useParams } from "react-router-dom";
-import { MyContext } from "../../DataContext";
-import { Spinner } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 import Header1 from "../../Reusuable-components/header/Header1";
+import PlayTrailer from "../../Reusuable-components/playTrailer/PlayTrailer";
+import { MyContext } from "../../DataContext";
 
 const SearchResultPage = () => {
-  const {} = useContext(MyContext);
+  const [play, setPlay] = useState(false);
   const { id } = useParams();
 
   const {
@@ -49,6 +50,7 @@ const SearchResultPage = () => {
   useEffect(() => {
     fetchMovie();
   }, [id]);
+
   return (
     <>
       <div className="result">
@@ -60,13 +62,20 @@ const SearchResultPage = () => {
         ) : (
           <div className="searchResult container">
             <div className="movieImage">
-              <img
-                className="movieImg"
-                src={
-                  "https://image.tmdb.org/t/p/original" +
-                  searchedMovie.poster_path
-                }
-              />
+              {searchedMovie && searchedMovie.poster_path ? (
+                <img
+                  className="movieImg"
+                  src={
+                    "https://image.tmdb.org/t/p/original" +
+                    searchedMovie.poster_path
+                  }
+                />
+              ) : (
+                <img
+                  className="movieImg"
+                  src="https://moviea.vercel.app/assets/no-poster-af8294eb.png"
+                />
+              )}
             </div>
             <div className="movieDiscription">
               {duplicateMoviesPrevention ? (
@@ -74,10 +83,30 @@ const SearchResultPage = () => {
               ) : (
                 <h3>{searchedMovie.title}</h3>
               )}
+
               <div className="buttons">
-                <button className="playBtn" onClick={fetchMovieVideoUrl}>
+                <button className="playBtn" onClick={() => setPlay(true)}>
                   Play Trailer
                 </button>
+
+                <div>
+                  {play && (
+                    <>
+                      <div className="trailervideo w-100 backdrop-blur">
+                        <div className="text-end">
+                          <Button
+                            variant="btn-link text-white"
+                            onClick={() => setPlay(false)}
+                          >
+                            Close
+                          </Button>
+                        </div>
+                        <PlayTrailer id={searchedMovie.id} sound={0} />
+                      </div>
+                    </>
+                  )}
+                </div>
+
                 <button
                   className="comedyBtn"
                   disabled={duplicateMoviesPrevention}
@@ -103,6 +132,7 @@ const SearchResultPage = () => {
             </div>
           </div>
         )}
+
         <div
           style={{
             color: "whitesmoke",
@@ -110,8 +140,7 @@ const SearchResultPage = () => {
             marginRight: "2rem",
           }}
         >
-          <h3>Similar Movies</h3>
-          <ScrollTable movieArray={searchedMovieArr} />
+          <ScrollTable title={"Similar Movies"} movieArray={searchedMovieArr} />
         </div>
       </div>
     </>

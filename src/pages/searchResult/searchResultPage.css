@@ -21,7 +21,7 @@
   height: 40vh;
   position: absolute;
   object-position: center;
-  object-fit: cover;
+  object-fit: fill;
 }
 .movieDiscription {
   height: 45vh;
@@ -55,6 +55,18 @@
   background: red;
 
   border-radius: 10px;
+}
+.trailervideo {
+  position: fixed;
+  top: 10vh;
+  left: 0;
+  z-index: 100;
+  padding: 2rem;
+  backdrop-filter: blur(20px);
+  height: 100vh;
+}
+.blur {
+  filter: blur(20px);
 }
 @media screen and (max-width: 1200px) {
   .searchResult {

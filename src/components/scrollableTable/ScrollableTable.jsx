@@ -10,13 +10,15 @@ const ScrollTable = ({ movieArray, title }) => {
   const handleOnClick = (id) => {
     navigate(`/movieresults/${id}`);
   };
+  console.log(movieArray);
   return (
     <>
       <div style={{ background: "black" }}>
         <Row style={{ marginLeft: "2rem", marginRight: "2rem" }}>
-          <Col className="movie-events">
-            <h3 className="ms-4">{title}</h3>
-          </Col>
+          <h3 className="ms-4 p-3 " style={{ color: "whitesmoke" }}>
+            {title}
+          </h3>
+
           <Col>
             <div className="table snaps-inline ">
               {movieArray?.map((item, i) => (
@@ -26,13 +28,19 @@ const ScrollTable = ({ movieArray, title }) => {
                   key={item.id}
                   onClick={() => handleOnClick(item.title)}
                 >
-                  <Card.Img
-                    style={{}}
-                    src={
-                      "https://image.tmdb.org/t/p/original" + item.poster_path
-                    }
-                    className="main-img"
-                  />
+                  {item.poster_path ? (
+                    <Card.Img
+                      src={
+                        "https://image.tmdb.org/t/p/original" + item.poster_path
+                      }
+                      className="main-img"
+                    />
+                  ) : (
+                    <Card.Img
+                      src="https://moviea.vercel.app/assets/no-poster-af8294eb.png"
+                      className="main-img"
+                    />
+                  )}
                 </Card>
               ))}
             </div>
