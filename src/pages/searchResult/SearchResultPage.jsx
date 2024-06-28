@@ -103,7 +103,16 @@ const SearchResultPage = () => {
             </div>
           </div>
         )}
-        <ScrollTable title={"Similar Movies"} movieArray={searchedMovieArr} />)
+        <div
+          style={{
+            color: "whitesmoke",
+            marginLeft: "2rem",
+            marginRight: "2rem",
+          }}
+        >
+          <h3>Similar Movies</h3>
+          <ScrollTable movieArray={searchedMovieArr} />
+        </div>
       </div>
     </>
   );

@@ -8,6 +8,7 @@ import ComedyMovies from "./components/movieTable/ComedyMovie";
 
 import MovieCard from "./Reusuable-components/movieCard/MovieCard.jsx";
 import AllResults from "./pages/searchResult/AllResults.jsx";
+import SearchResultPage from "./pages/searchResult/SearchResultPage.jsx";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/movieresults/:id" element={<AllResults />} />
+        <Route path="/searchedmovie/:id" element={<SearchResultPage />} />
         <Route path="/allMovies" element={<AllMovies />} />
         <Route path="/actionMovies" element={<ActionMovies />} />
         <Route path="/comedyMovies" element={<ComedyMovies />} />
