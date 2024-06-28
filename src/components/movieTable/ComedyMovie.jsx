@@ -3,6 +3,7 @@ import "./movieTable.css";
 
 import { MyContext } from "../../DataContext";
 import Header1 from "../../Reusuable-components/header/Header1";
+import { useNavigate } from "react-router-dom";
 
 const MovieTable = () => {
   const { comedyMovies, setComedyMovies } = useContext(MyContext);
@@ -11,7 +12,10 @@ const MovieTable = () => {
     const movieListAfterDelete = comedyMovies.filter((item) => item.id !== id);
     setComedyMovies(movieListAfterDelete);
   };
-
+  const navigate = useNavigate();
+  const handleOnClick = (title) => {
+    navigate(`/searchedmovie/${title}`);
+  };
   return (
     <>
       <Header1 />
@@ -39,17 +43,11 @@ const MovieTable = () => {
                       }
                       alt=""
                       className="tableImage"
+                      onClick={() => handleOnClick(item.title)}
                     />
                   </div>
 
-                  <div className="movieCardDescription p-2">
-                    {item.title.length > 16 ? (
-                      <p style={{ textAlign: "center" }}>{item.title}</p>
-                    ) : (
-                      <h4>{item.title}</h4>
-                    )}
-                  </div>
-                  <div className="button d-grid p-1">
+                  <div className="button d-flex justify-content-center p-1">
                     <button
                       className="btn btn-danger  "
                       onClick={() => handleOnDelete(item.id)}

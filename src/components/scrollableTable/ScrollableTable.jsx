@@ -7,10 +7,10 @@ import { useNavigate } from "react-router-dom";
 
 const ScrollTable = ({ movieArray, title }) => {
   const navigate = useNavigate();
-  const handleOnClick = (id) => {
-    navigate(`/movieresults/${id}`);
+  const handleOnClick = (title) => {
+    navigate(`/movieresults/${title}`);
   };
-  console.log(movieArray);
+
   return (
     <>
       <div style={{ background: "black" }}>
