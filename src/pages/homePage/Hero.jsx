@@ -9,7 +9,11 @@ const Hero = ({ movie }) => {
 
   return (
     <>
-      <PlayTrailer id={randomMovie} />
+      <div style={{ background: "black" }}>
+        <div style={{ padding: "2rem" }}>
+          <PlayTrailer id={randomMovie} />
+        </div>
+      </div>
     </>
   );
 };

@@ -5,7 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "./header1.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { MyContext } from "../../DataContext";
 
@@ -18,15 +18,18 @@ function Header1() {
   };
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    navigate(`/searchResult/${movieName}`);
+    navigate(`/movieresults/${movieName}`);
   };
   return (
     <Navbar expand="lg" className="  whole-header" variant="dark">
       <Container>
         <Container fluid>
-          <Navbar.Brand href="#" className="title">
-            CineVision
-          </Navbar.Brand>
+          <Link to={"/"} className="link">
+            <Navbar.Brand href="#" className="title">
+              CineVision
+            </Navbar.Brand>
+          </Link>
+
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -35,14 +38,24 @@ function Header1() {
               navbarScroll
             >
               <NavDropdown title="" id="navbarScrollingDropdown" md={6}>
-                <NavDropdown.Item href="#action3">
-                  Action Movies
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                  Comedy Movies
-                </NavDropdown.Item>
+                <Link to={"/actionMovies"} className="link">
+                  <NavDropdown.Item href="#action3">
+                    Action Movies
+                  </NavDropdown.Item>
+                </Link>
+
+                <Link to={"/comedyMovies"} className="link">
+                  <NavDropdown.Item href="#action4">
+                    Comedy Movies
+                  </NavDropdown.Item>
+                </Link>
+
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">All Movies</NavDropdown.Item>
+                <Link to={"/allMovies"} className="link">
+                  <NavDropdown.Item href="#action5">
+                    All Movies
+                  </NavDropdown.Item>
+                </Link>
               </NavDropdown>
             </Nav>
             <Form className="d-flex " onSubmit={handleOnSubmit} md={6}>

@@ -8,3 +8,6 @@
   color: goldenrod !important;
   font-weight: bolder;
 }
+.link {
+  text-decoration: none;
+}

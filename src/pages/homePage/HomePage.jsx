@@ -5,7 +5,7 @@ import { MyContext } from "../../DataContext";
 import Header1 from "../../Reusuable-components/header/Header1";
 import "./homepage.css";
 
-import { Col, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import Hero from "./Hero";
 
 const HomePage = () => {
@@ -34,15 +34,16 @@ const HomePage = () => {
     <>
       <Header1 />
       <Hero movie={upComingMovies} />
-
-      <Row>
-        <Col className="movie-events">
-          <h3 className="ms-4">UpComing Movies</h3>
-        </Col>
-        <Col>
-          <ScrollTable movie={upComingMovies} />
-        </Col>
-      </Row>
+      <div style={{ background: "black" }}>
+        <Row style={{ marginLeft: "2rem", marginRight: "2rem" }}>
+          <Col className="movie-events">
+            <h3 className="ms-4">UpComing Movies</h3>
+          </Col>
+          <Col>
+            <ScrollTable movie={upComingMovies} />
+          </Col>
+        </Row>
+      </div>
 
       {/* <MovieCard movie={upComingMovies} /> */}
     </>

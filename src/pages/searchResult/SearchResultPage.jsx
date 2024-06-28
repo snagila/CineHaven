@@ -42,7 +42,6 @@ const SearchResultPage = () => {
   const fetchMovieVideoUrl = async () => {
     const response = await fetch(movieVideoUrl);
     const data = await response.json();
-    console.log(data);
   };
   const duplicateMoviesPrevention = allMovies.find(
     (item) => item.id === searchedMovie.id

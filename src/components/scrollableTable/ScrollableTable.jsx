@@ -10,7 +10,7 @@ const ScrollTable = ({ movie }) => {
       <div className="table snaps-inline ">
         {movie?.map((item, i) => (
           <Card
-            style={{ width: "18rem", background: "black" }}
+            style={{ width: "15rem", background: "black" }}
             className="img"
             key={i}
           >
