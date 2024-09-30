@@ -45,79 +45,32 @@
   }
 }
 
-/* gfdhfjgkhlhjhgdfvghfjgkhlgjhfgdfjgkhl */
-.searchResult {
-  display: flex;
-  gap: 1rem;
+.description-col-xs-poster {
+  display: none;
 }
-.movieImage {
-  height: 45vh;
-  width: 50%;
-  background: black;
-  position: relative;
-  padding: 1em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.companyPsoterMap-Div {
+  background-color: whitesmoke;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 5px;
 }
-.movieImg {
-  width: 100%;
-  height: 40vh;
-  position: absolute;
-  object-position: center;
-  object-fit: fill;
-}
-.movieDiscription {
-  height: 45vh;
 
-  width: 50%;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  color: whitesmoke;
-  background: black;
+.borderForDiscRow {
+  border-top: 1px solid #ff000050;
+  border-bottom: 1px solid #ff000050;
+  padding: 1rem;
 }
-.buttons {
-  display: flex;
-  gap: 5px;
-}
-.playBtn {
-  width: 30%;
-  background: bisque;
-  padding: 0.5em;
-  border-radius: 10px;
-}
-.comedyBtn {
-  width: 30%;
-  background: yellow;
-
-  border-radius: 10px;
-}
-.actionBtn {
-  width: 30%;
-  background: red;
-
-  border-radius: 10px;
-}
-.trailervideo {
-  position: fixed;
-  top: 10vh;
-  left: 0;
-  z-index: 100;
-  padding: 2rem;
-  backdrop-filter: blur(20px);
-  height: 100vh;
-}
-.blur {
-  filter: blur(20px);
-}
-@media screen and (max-width: 1200px) {
-  .searchResult {
-    display: flex;
-    flex-direction: column;
+@media (max-width: 600px) {
+  .movie-image-col {
+    display: none;
   }
-  .movieImage {
-    width: 100%;
+  .genre-titlestatic-span {
+    display: none;
   }
+  .description-col-xs-poster {
+    display: block;
+  }
+  /* .companyPoster {
+    display: none;
+  } */
 }

@@ -12,7 +12,7 @@ const MovieCard = ({ movie }) => {
       <Card
         className="custom-color  text-white "
         style={{ width: "15rem" }}
-        onClick={() => handleOnClick(movie.title)}
+        onClick={() => handleOnClick(movie.id)}
       >
         {movie && movie.poster_path ? (
           <Card.Img

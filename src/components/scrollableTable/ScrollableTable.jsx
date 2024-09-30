@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 const ScrollTable = ({ movieArray, title }) => {
   const navigate = useNavigate();
   const handleOnClick = (title) => {
+    console.log(title);
     navigate(`/searchedmovie/${title}`);
   };
 
@@ -23,15 +24,15 @@ const ScrollTable = ({ movieArray, title }) => {
           </h3>
         </Row>
         <div
-          className="card-div  ps-4 snaps-inline"
-          style={{
-            overflowX: "auto",
-          }}
+          className="card-div  ps-4 scroll-container"
+          // style={{
+          //   overflowX: "auto",
+          // }}
         >
-          <Row className="flex-nowrap  gap-3 cursor-pointer p-2">
+          <Row className="flex-nowrap  gap-3 cursor-pointer p-2 ">
             {movieArray?.map((item) => (
               <Col className="p-0 card-col-individual " xs={2} key={item.id}>
-                <Card onClick={() => handleOnClick(item.title)}>
+                <Card onClick={() => handleOnClick(item.id)}>
                   {item.poster_path ? (
                     <Card.Img
                       src={
