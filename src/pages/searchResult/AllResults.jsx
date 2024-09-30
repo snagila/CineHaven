@@ -4,6 +4,7 @@ import Header1 from "../../Reusuable-components/header/Header1";
 import { useParams } from "react-router-dom";
 
 import MovieCard from "../../Reusuable-components/movieCard/MovieCard";
+import MovieDisplayCard from "../../components/movieTable/MovieDisplayCard";
 
 const AllResults = () => {
   const [allSearchedMovies, setAllSearchedMovies] = useState([]);
@@ -23,28 +24,11 @@ const AllResults = () => {
   return (
     <>
       <Header1 />
-      <div
-        className="allresults"
-        style={{
-          color: "whitesmoke",
-          background: "black",
-          minHeight: "100vh",
-          padding: "3rem",
-        }}
-      >
-        <div className="allresultsTitle">
-          <div className="ms-3">
-            <h3 className="mb-5">
-              Search Results for "<span style={{ color: "red" }}>{id}</span>"
-            </h3>
-            <div className="movielist">
-              {allSearchedMovies?.map((item, i) => (
-                <MovieCard movie={item} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+
+      <MovieDisplayCard
+        allMovies={allSearchedMovies}
+        title={`Search result for "${id}"`}
+      />
     </>
   );
 };
