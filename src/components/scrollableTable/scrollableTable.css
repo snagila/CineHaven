@@ -1,32 +1,16 @@
-.table {
-  display: grid;
-  grid-auto-flow: column;
-  grid-column-start: auto;
-  overflow-x: scroll;
-  height: 360px;
-  padding: 5px;
-  background: #000;
-  gap: 1rem;
-}
-.table::-webkit-scrollbar {
-  display: none;
-}
-img {
-  object-position: center;
-  object-fit: cover;
-  width: 100% !important;
-  height: 350px;
-  border-radius: 50px;
-}
-.main-img {
-  width: 100%;
-}
-
 .snaps-inline {
   scroll-snap-type: inline mandatory;
-  scroll-padding-inline: var(--_spacer, 1rem);
+  /* scroll-padding-inline: var(--_spacer, 1rem); */
 }
 
 .snaps-inline > * {
   scroll-snap-align: start;
+}
+
+.card-col-individual {
+  cursor: pointer;
+}
+.card-col-individual:hover {
+  box-shadow: 0 0 40px 10px rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition */
 }

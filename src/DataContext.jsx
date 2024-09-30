@@ -10,7 +10,6 @@ export const MyProvider = ({ children }) => {
   const [comedyMovies, setComedyMovies] = useState([]);
   const [allMovies, setAllMovies] = useState([]);
   const [isLoading, setIsLoading] = useState();
-  const [play, setPlay] = useState();
 
   const handleOnClick = (genre) => {
     const movieWithGenre = { ...searchedMovie, genre: genre };

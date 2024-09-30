@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { API_KEY } from "../../API_KEY";
 import "./playTrailer.css";
 
 const PlayTrailer = ({ id, sound }) => {
+  const API_KEY = import.meta.env.VITE_APP_API_KEY;
   const [video_key, setVideo_key] = useState("");
   const searchMovieurl = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
   const movieVideoUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`;

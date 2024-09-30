@@ -1,14 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import ScrollTable from "../../components/scrollableTable/ScrollableTable";
-import { API_KEY } from "../../API_KEY";
 import { MyContext } from "../../DataContext";
 import Header1 from "../../Reusuable-components/header/Header1";
 import "./homepage.css";
-import { Col, Container, Row } from "react-bootstrap";
 import Hero from "./Hero";
 
 const HomePage = () => {
   const { isLoading, setIsLoading } = useContext(MyContext);
+  const API_KEY = import.meta.env.VITE_APP_API_KEY;
   const [inCinema, setInCinema] = useState([]);
   const [upComingMovies, setUpComingMovies] = useState([]);
   const [trending, setIsTrending] = useState([]);
@@ -55,8 +54,8 @@ const HomePage = () => {
     <>
       <Header1 />
       <Hero movie={upComingMovies} />
-      <ScrollTable movieArray={upComingMovies} title={"UpComing Movies"} />
       <ScrollTable movieArray={inCinema} title={"In Cinemas"} />
+      <ScrollTable movieArray={upComingMovies} title={"UpComing Movies"} />
       <ScrollTable movieArray={trending} title={"Trending This Week"} />
     </>
   );

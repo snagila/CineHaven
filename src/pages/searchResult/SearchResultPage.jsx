@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./searchResultPage.css";
 import ScrollTable from "../../components/scrollableTable/ScrollableTable";
-import { API_KEY } from "../../API_KEY";
+
 import { useParams } from "react-router-dom";
 import { Button, Spinner } from "react-bootstrap";
 import Header1 from "../../Reusuable-components/header/Header1";
@@ -11,6 +11,8 @@ import { MyContext } from "../../DataContext";
 const SearchResultPage = () => {
   const [play, setPlay] = useState(false);
   const { id } = useParams();
+  console.log(id);
+  const API_KEY = import.meta.env.VITE_APP_API_KEY;
 
   const {
     searchedMovieArr,

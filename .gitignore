@@ -12,6 +12,8 @@ API_KEY.jsx
 dist
 dist-ssr
 *.local
+.env
+
 
 # Editor directories and files
 .vscode/*
