@@ -23,14 +23,14 @@ const ScrollTable = ({ movieArray, title }) => {
           </h3>
         </Row>
         <div
-          className="card-div ps-4"
+          className="card-div  ps-4 snaps-inline"
           style={{
             overflowX: "auto",
           }}
         >
-          <Row className="flex-nowrap snaps-inline gap-3 cursor-pointer p-2">
+          <Row className="flex-nowrap  gap-3 cursor-pointer p-2">
             {movieArray?.map((item) => (
-              <Col className="p-0 card-col-individual" xs={3} key={item.id}>
+              <Col className="p-0 card-col-individual " xs={2} key={item.id}>
                 <Card onClick={() => handleOnClick(item.title)}>
                   {item.poster_path ? (
                     <Card.Img

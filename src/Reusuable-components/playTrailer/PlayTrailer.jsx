@@ -40,7 +40,9 @@ const PlayTrailer = ({ id, sound }) => {
         >
           <iframe
             width="100%"
-            src={`https://www.youtube.com/embed/${video_key}?autoplay=1&mute=${sound}&loop=1`}
+            src={`https://www.youtube.com/embed/${video_key}?autoplay=1&mute=${sound}&loop=1&rel=0&controls=${
+              sound ? 0 : 1
+            }`}
             allowFullScreen
             allow="autoplay"
           ></iframe>

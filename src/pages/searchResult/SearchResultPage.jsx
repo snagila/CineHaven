@@ -3,15 +3,15 @@ import "./searchResultPage.css";
 import ScrollTable from "../../components/scrollableTable/ScrollableTable";
 
 import { useParams } from "react-router-dom";
-import { Button, Spinner } from "react-bootstrap";
+import { Button, Col, Container, Image, Row, Spinner } from "react-bootstrap";
 import Header1 from "../../Reusuable-components/header/Header1";
 import PlayTrailer from "../../Reusuable-components/playTrailer/PlayTrailer";
 import { MyContext } from "../../DataContext";
+import { FaCirclePlay } from "react-icons/fa6";
 
 const SearchResultPage = () => {
   const [play, setPlay] = useState(false);
   const { id } = useParams();
-  console.log(id);
   const API_KEY = import.meta.env.VITE_APP_API_KEY;
 
   const {
@@ -26,7 +26,6 @@ const SearchResultPage = () => {
   } = useContext(MyContext);
 
   const searchMovieUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${id}`;
-  const movieVideoUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`;
 
   const fetchMovie = async () => {
     try {
@@ -42,10 +41,6 @@ const SearchResultPage = () => {
     }
   };
 
-  const fetchMovieVideoUrl = async () => {
-    const response = await fetch(movieVideoUrl);
-    const data = await response.json();
-  };
   const duplicateMoviesPrevention = allMovies.find(
     (item) => item.id === searchedMovie.id
   );
@@ -53,33 +48,62 @@ const SearchResultPage = () => {
     fetchMovie();
   }, [id]);
 
+  console.log(searchedMovie);
   return (
     <>
-      <div className="result">
-        <Header1 />
-        {isLoading === true ? (
-          <div className="spinner mt-2">
-            <Spinner animation="border" variant="danger" />
-          </div>
-        ) : (
-          <div className="searchResult container">
-            <div className="movieImage">
-              {searchedMovie && searchedMovie.poster_path ? (
-                <img
-                  className="movieImg"
-                  src={
-                    "https://image.tmdb.org/t/p/original" +
-                    searchedMovie.poster_path
-                  }
+      <Header1 />
+      <Container fluid className="mt-4 p-auto m-auto">
+        <Row>
+          <Row className="pb-4 ps-3 d-flex  justify-content-center">
+            <Col xs={12} md={3}>
+              <Image
+                src={
+                  "https://image.tmdb.org/t/p/original" +
+                  searchedMovie.poster_path
+                }
+                className="img-fluid p-1"
+              />
+            </Col>
+            <Col xs={12} md={8} className="play-video-col">
+              <PlayTrailer id={searchedMovie.id} sound={1} />
+              {/* <Image
+                src={
+                  "https://image.tmdb.org/t/p/original" +
+                  searchedMovie.backdrop_path
+                }
+                className="img-fluid"
+              /> */}
+
+              <div className="play-button-container">
+                <div className="dotted-circle"></div>{" "}
+                <FaCirclePlay
+                  size={50}
+                  className="play-button"
+                  onClick={() => setPlay(true)}
                 />
-              ) : (
-                <img
-                  className="movieImg"
-                  src="https://moviea.vercel.app/assets/no-poster-af8294eb.png"
-                />
+              </div>
+            </Col>
+            <div>
+              {play && (
+                <>
+                  <div className="trailervideo w-100 backdrop-blur">
+                    <div className="text-end">
+                      <Button
+                        variant="btn-link text-danger"
+                        onClick={() => setPlay(false)}
+                      >
+                        Close
+                      </Button>
+                    </div>
+                    <PlayTrailer id={searchedMovie.id} sound={0} />
+                  </div>
+                </>
               )}
             </div>
-            <div className="movieDiscription">
+
+            <Row>jgdkjsdgfksdfghskd</Row>
+            {/* <Col>
+            <div className="">
               {duplicateMoviesPrevention ? (
                 <h3>{searchedMovie.title} (Movie in your list)</h3>
               ) : (
@@ -97,7 +121,7 @@ const SearchResultPage = () => {
                       <div className="trailervideo w-100 backdrop-blur">
                         <div className="text-end">
                           <Button
-                            variant="btn-link text-white"
+                            variant="btn-link text-danger"
                             onClick={() => setPlay(false)}
                           >
                             Close
@@ -132,19 +156,16 @@ const SearchResultPage = () => {
                 {searchedMovie.overview}
               </div>
             </div>
-          </div>
-        )}
-
-        <div
-          style={{
-            color: "whitesmoke",
-            marginLeft: "2rem",
-            marginRight: "2rem",
-          }}
-        >
-          <ScrollTable title={"Similar Movies"} movieArray={searchedMovieArr} />
-        </div>
-      </div>
+          </Col> */}
+          </Row>
+          <Row>
+            <ScrollTable
+              title={"Similar Movies"}
+              movieArray={searchedMovieArr}
+            />
+          </Row>
+        </Row>
+      </Container>
     </>
   );
 };
