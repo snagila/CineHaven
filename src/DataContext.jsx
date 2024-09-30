@@ -6,19 +6,20 @@ export const MyProvider = ({ children }) => {
   const [movieName, setMovieName] = useState("");
   const [searchedMovieArr, setSearchedMovieArr] = useState([]);
   const [searchedMovie, setSearchedMovie] = useState({});
-  const [actionMovies, setActionMovies] = useState([]);
-  const [comedyMovies, setComedyMovies] = useState([]);
+  const [watchedMovies, setWatchedMovies] = useState([]);
+  const [toWatchMovies, setToWatchMovies] = useState([]);
+
   const [allMovies, setAllMovies] = useState([]);
   const [isLoading, setIsLoading] = useState();
 
-  const handleOnClick = (genre) => {
-    const movieWithGenre = { ...searchedMovie, genre: genre };
-    if (genre === "comedy") {
+  const handleOnClick = (status) => {
+    const movieWithGenre = { ...searchedMovie, status: status };
+    if (status === "watched") {
       setAllMovies([...allMovies, movieWithGenre]);
-      setComedyMovies([...comedyMovies, movieWithGenre]);
+      setWatchedMovies([...watchedMovies, movieWithGenre]);
     } else {
       setAllMovies([...allMovies, movieWithGenre]);
-      setActionMovies([...actionMovies, movieWithGenre]);
+      setToWatchMovies([...toWatchMovies, movieWithGenre]);
     }
   };
 
@@ -32,10 +33,10 @@ export const MyProvider = ({ children }) => {
         handleOnClick,
         searchedMovie,
         setSearchedMovie,
-        actionMovies,
-        setActionMovies,
-        comedyMovies,
-        setComedyMovies,
+        watchedMovies,
+        setWatchedMovies,
+        toWatchMovies,
+        setToWatchMovies,
         allMovies,
         setAllMovies,
         isLoading,

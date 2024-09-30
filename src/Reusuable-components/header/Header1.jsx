@@ -40,13 +40,13 @@ function Header1() {
               <NavDropdown title="" id="navbarScrollingDropdown" md={6}>
                 <Link to={"/actionMovies"} className="link">
                   <NavDropdown.Item href="#action3">
-                    Action Movies
+                    Movies To watch
                   </NavDropdown.Item>
                 </Link>
 
                 <Link to={"/comedyMovies"} className="link">
                   <NavDropdown.Item href="#action4">
-                    Comedy Movies
+                    Watched Movies
                   </NavDropdown.Item>
                 </Link>
 

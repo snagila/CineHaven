@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./searchResultPage.css";
-import ScrollTable from "../../components/scrollableTable/ScrollableTable";
 
 import { useParams } from "react-router-dom";
 import {
@@ -17,6 +16,7 @@ import PlayTrailer from "../../Reusuable-components/playTrailer/PlayTrailer";
 import { MyContext } from "../../DataContext";
 import { FaCirclePlay, FaStar } from "react-icons/fa6";
 import { LuDot } from "react-icons/lu";
+import SimilarMovies from "./SimilarMovies";
 
 const SearchResultPage = () => {
   const [play, setPlay] = useState(false);
@@ -34,9 +34,7 @@ const SearchResultPage = () => {
     setIsLoading,
   } = useContext(MyContext);
 
-  // const searchMovieUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${id}`;
   const searchMovieUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
-
   const fetchMovie = async () => {
     try {
       setIsLoading(true);
@@ -130,6 +128,7 @@ const SearchResultPage = () => {
               </Col>
 
               {/* video div */}
+              <div className={play ? "blur-background" : ""}></div>
               <div>
                 {play && (
                   <>
@@ -166,12 +165,31 @@ const SearchResultPage = () => {
                 </Col>
 
                 <Col md={4} xs={12}>
-                  <div className=" d-flex gap-2  ">
-                    <Button size="sm">Watched</Button>
-                    <Button size="sm" className="text-nowrap ">
-                      To Watch
-                    </Button>
-                  </div>
+                  {!duplicateMoviesPrevention && (
+                    <div className=" d-flex gap-2  ">
+                      <Button
+                        size="sm"
+                        disabled={duplicateMoviesPrevention}
+                        onClick={() => handleOnClick("watched")}
+                      >
+                        Watched
+                      </Button>
+                      <Button
+                        size="sm"
+                        className="text-nowrap "
+                        disabled={duplicateMoviesPrevention}
+                        onClick={() => handleOnClick("tobewatched")}
+                      >
+                        To Watch
+                      </Button>
+                    </div>
+                  )}
+
+                  {duplicateMoviesPrevention && (
+                    <div className=" d-flex gap-2  ">
+                      <Badge size={"sm"}>Movie in your list</Badge>
+                    </div>
+                  )}
                 </Col>
               </Row>
 
@@ -183,28 +201,9 @@ const SearchResultPage = () => {
                 <h3>{searchedMovie.title}</h3>
               )}
 
-              <div className="buttons">
-                <button className="playBtn" onClick={() => setPlay(true)}>
-                  Play Trailer
-                </button>
+              
 
-                <div>
-                  {play && (
-                    <>
-                      <div className="trailervideo w-100 backdrop-blur">
-                        <div className="text-end">
-                          <Button
-                            variant="btn-link text-danger"
-                            onClick={() => setPlay(false)}
-                          >
-                            Close
-                          </Button>
-                        </div>
-                        <PlayTrailer id={searchedMovie.id} sound={0} />
-                      </div>
-                    </>
-                  )}
-                </div>
+                
 
                 <button
                   className="comedyBtn"
@@ -221,13 +220,8 @@ const SearchResultPage = () => {
                   + Action
                 </button>
               </div>
-              <div>
-                <h4>Year :</h4> {searchedMovie.release_date}
-              </div>
-              <div>
-                <h4>Plot : </h4>
-                {searchedMovie.overview}
-              </div>
+             
+             
             </div>
           </Col> */}
             </Row>
@@ -368,10 +362,7 @@ const SearchResultPage = () => {
               </Col>
             </Row>
             <Row>
-              <ScrollTable
-                title={"Similar Movies"}
-                movieArray={searchedMovieArr}
-              />
+              <SimilarMovies id={id} />
             </Row>
           </Row>
         </Container>
