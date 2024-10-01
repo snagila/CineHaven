@@ -16,20 +16,16 @@ const HomePage = () => {
 
   const fetchUpComingMovies = async () => {
     try {
-      setIsLoading(true);
       const response = await fetch(upcomingUrl);
       const data = await response.json();
       setUpComingMovies(data.results);
-      setIsLoading(false);
     } catch (error) {
       alert(error.message);
-      setIsLoading(false);
     }
   };
 
   const fetchinCinemaMovies = async () => {
     try {
-      setIsLoading(true);
       const response = await fetch(inCinemaUrl);
       const data = await response.json();
       setInCinema(data.results);
@@ -42,14 +38,11 @@ const HomePage = () => {
 
   const treandinThisWeek = async () => {
     try {
-      setIsLoading(true);
       const response = await fetch(trendingMovieUrl);
       const data = await response.json();
       setIsTrending(data.results);
-      setIsLoading(false);
     } catch (error) {
       alert(error.message);
-      setIsLoading(false);
     }
   };
   useEffect(() => {

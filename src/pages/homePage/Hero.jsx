@@ -1,5 +1,6 @@
 import React from "react";
 import PlayTrailer from "../../Reusuable-components/playTrailer/PlayTrailer";
+import { Col, Row } from "react-bootstrap";
 
 const Hero = ({ movie }) => {
   const randomNumber = Math.floor(Math.random() * 20);
@@ -7,11 +8,11 @@ const Hero = ({ movie }) => {
 
   return (
     <>
-      <div style={{ background: "black" }}>
-        <div style={{ padding: "2rem" }}>
+      <Row style={{ background: "black" }}>
+        <Col>
           <PlayTrailer id={randomMovie} sound={1} />
-        </div>
-      </div>
+        </Col>
+      </Row>
     </>
   );
 };

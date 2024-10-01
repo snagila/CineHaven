@@ -40,10 +40,7 @@ const PlayTrailer = ({ id, sound }) => {
   return (
     <>
       {video_key ? (
-        <div
-          className="iframe-container ratio ratio-16x9"
-          style={{ height: "60vh" }}
-        >
+        <div className="iframe-container ratio ratio-16x9">
           <iframe
             width="100%"
             src={`https://www.youtube.com/embed/${video_key}?autoplay=1&mute=${sound}&loop=1&rel=0&controls=${

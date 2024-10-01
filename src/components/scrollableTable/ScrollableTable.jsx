@@ -7,7 +7,6 @@ import SpinnerComp from "../../Reusuable-components/SpinnerComp";
 const ScrollTable = ({ movieArray, title, isLoading }) => {
   const navigate = useNavigate();
   const handleOnClick = (title) => {
-    console.log(title);
     navigate(`/searchedmovie/${title}`);
   };
 

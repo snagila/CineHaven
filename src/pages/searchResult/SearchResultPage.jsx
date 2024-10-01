@@ -2,15 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./searchResultPage.css";
 
 import { useParams } from "react-router-dom";
-import {
-  Badge,
-  Button,
-  Col,
-  Container,
-  Image,
-  Row,
-  Spinner,
-} from "react-bootstrap";
+import { Badge, Button, Col, Container, Image, Row } from "react-bootstrap";
 import Header1 from "../../Reusuable-components/header/Header1";
 import PlayTrailer from "../../Reusuable-components/playTrailer/PlayTrailer";
 import { MyContext } from "../../DataContext";
