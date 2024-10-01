@@ -25,7 +25,6 @@ function Header1() {
       <Navbar expand="lg" variant="dark">
         <Container>
           <Container fluid>
-            <div></div>
             <Link to={"/"} className="link">
               <Navbar.Brand href="#" className="title">
                 CineVision

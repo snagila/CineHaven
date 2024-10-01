@@ -2,8 +2,9 @@ import React from "react";
 import "./scrollableTable.css";
 import { Card, Col, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import SpinnerComp from "../../Reusuable-components/SpinnerComp";
 
-const ScrollTable = ({ movieArray, title }) => {
+const ScrollTable = ({ movieArray, title, isLoading }) => {
   const navigate = useNavigate();
   const handleOnClick = (title) => {
     console.log(title);
@@ -32,17 +33,22 @@ const ScrollTable = ({ movieArray, title }) => {
                 md={2}
                 key={item.id}
               >
-                <Card onClick={() => handleOnClick(item.id)}>
-                  {item.poster_path ? (
-                    <Card.Img
-                      src={
-                        "https://image.tmdb.org/t/p/original" + item.poster_path
-                      }
-                    />
-                  ) : (
-                    <Card.Img src="https://moviea.vercel.app/assets/no-poster-af8294eb.png" />
-                  )}
-                </Card>
+                {isLoading ? (
+                  <SpinnerComp />
+                ) : (
+                  <Card onClick={() => handleOnClick(item.id)}>
+                    {item.poster_path ? (
+                      <Card.Img
+                        src={
+                          "https://image.tmdb.org/t/p/original" +
+                          item.poster_path
+                        }
+                      />
+                    ) : (
+                      <Card.Img src="https://moviea.vercel.app/assets/no-poster-af8294eb.png" />
+                    )}
+                  </Card>
+                )}
               </Col>
             ))}
           </Row>

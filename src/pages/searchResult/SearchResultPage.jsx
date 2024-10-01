@@ -159,6 +159,7 @@ const SearchResultPage = () => {
                   {!duplicateMoviesPrevention && (
                     <div className=" d-flex gap-2  ">
                       <Button
+                        variant="success"
                         size="sm"
                         disabled={duplicateMoviesPrevention}
                         onClick={() => handleOnClick("watched")}
@@ -190,7 +191,7 @@ const SearchResultPage = () => {
               <Col xs={8} className="ps-4">
                 {/* movie rating */}
                 <Row>
-                  <div className="d-flex flex-row align-items-center">
+                  <div className="d-flex flex-row align-items-center align-items-end">
                     <div className="pe-1">
                       <FaStar color="yellow" />{" "}
                     </div>
@@ -205,10 +206,10 @@ const SearchResultPage = () => {
                       </span>
                     </div>
                     <div
-                      className="text-secondary"
+                      className="text-secondary  "
                       style={{ fontSize: "12px" }}
                     >
-                      {searchedMovie?.vote_count}
+                      {searchedMovie?.vote_count} users
                     </div>
                   </div>
                 </Row>

@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ScrollTable from "../../components/scrollableTable/ScrollableTable";
-import { MyContext } from "../../DataContext";
 import Header1 from "../../Reusuable-components/header/Header1";
 import "./homepage.css";
 import Hero from "./Hero";
 
 const HomePage = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const API_KEY = import.meta.env.VITE_APP_API_KEY;
   const [inCinema, setInCinema] = useState([]);
   const [upComingMovies, setUpComingMovies] = useState([]);
@@ -16,31 +16,40 @@ const HomePage = () => {
 
   const fetchUpComingMovies = async () => {
     try {
+      setIsLoading(true);
       const response = await fetch(upcomingUrl);
       const data = await response.json();
       setUpComingMovies(data.results);
+      setIsLoading(false);
     } catch (error) {
       alert(error.message);
+      setIsLoading(false);
     }
   };
 
   const fetchinCinemaMovies = async () => {
     try {
+      setIsLoading(true);
       const response = await fetch(inCinemaUrl);
       const data = await response.json();
       setInCinema(data.results);
+      setIsLoading(false);
     } catch (error) {
       alert(error.message);
+      setIsLoading(false);
     }
   };
 
   const treandinThisWeek = async () => {
     try {
+      setIsLoading(true);
       const response = await fetch(trendingMovieUrl);
       const data = await response.json();
       setIsTrending(data.results);
+      setIsLoading(false);
     } catch (error) {
       alert(error.message);
+      setIsLoading(false);
     }
   };
   useEffect(() => {
@@ -53,9 +62,22 @@ const HomePage = () => {
     <>
       <Header1 />
       <Hero movie={upComingMovies} />
-      <ScrollTable movieArray={inCinema} title={"In Cinemas"} />
-      <ScrollTable movieArray={upComingMovies} title={"UpComing Movies"} />
-      <ScrollTable movieArray={trending} title={"Trending This Week"} />
+
+      <ScrollTable
+        movieArray={inCinema}
+        title={"In Cinemas"}
+        isLoading={isLoading}
+      />
+      <ScrollTable
+        movieArray={upComingMovies}
+        title={"UpComing Movies"}
+        isLoading={isLoading}
+      />
+      <ScrollTable
+        movieArray={trending}
+        title={"Trending This Week"}
+        isLoading={isLoading}
+      />
     </>
   );
 };
