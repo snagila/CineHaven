@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./allResults.css";
 import Header1 from "../../Reusuable-components/header/Header1";
 import { useParams } from "react-router-dom";
-
-import MovieCard from "../../Reusuable-components/movieCard/MovieCard";
 import MovieDisplayCard from "../../components/movieTable/MovieDisplayCard";
 
 const AllResults = () => {

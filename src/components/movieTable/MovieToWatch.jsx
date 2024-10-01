@@ -3,7 +3,7 @@ import { MyContext } from "../../DataContext";
 import Header1 from "../../Reusuable-components/header/Header1";
 import MovieDisplayCard from "./MovieDisplayCard";
 
-const MovieTable = () => {
+const MovieToWatch = () => {
   const { toWatchMovies, setToWatchMovies } = useContext(MyContext);
 
   return (
@@ -14,4 +14,4 @@ const MovieTable = () => {
   );
 };
 
-export default MovieTable;
+export default MovieToWatch;

@@ -6,7 +6,6 @@ import "./homepage.css";
 import Hero from "./Hero";
 
 const HomePage = () => {
-  const { isLoading, setIsLoading } = useContext(MyContext);
   const API_KEY = import.meta.env.VITE_APP_API_KEY;
   const [inCinema, setInCinema] = useState([]);
   const [upComingMovies, setUpComingMovies] = useState([]);

@@ -23,24 +23,15 @@ const SearchResultPage = () => {
   const { id } = useParams();
   const API_KEY = import.meta.env.VITE_APP_API_KEY;
 
-  const {
-    searchedMovieArr,
-    setSearchedMovieArr,
-    handleOnClick,
-    searchedMovie,
-    setSearchedMovie,
-    allMovies,
-    isLoading,
-    setIsLoading,
-  } = useContext(MyContext);
+  const { handleOnClick, searchedMovie, setSearchedMovie, allMovies } =
+    useContext(MyContext);
 
   const searchMovieUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
   const fetchMovie = async () => {
     try {
-      setIsLoading(true);
       const response = await fetch(searchMovieUrl);
       const data = await response.json();
-      setIsLoading(false);
+
       setSearchedMovie(data);
     } catch (error) {
       alert(error.message);
@@ -192,38 +183,6 @@ const SearchResultPage = () => {
                   )}
                 </Col>
               </Row>
-
-              {/* <Col>
-            <div className="">
-              {duplicateMoviesPrevention ? (
-                <h3>{searchedMovie.title} (Movie in your list)</h3>
-              ) : (
-                <h3>{searchedMovie.title}</h3>
-              )}
-
-              
-
-                
-
-                <button
-                  className="comedyBtn"
-                  disabled={duplicateMoviesPrevention}
-                  onClick={() => handleOnClick("comedy")}
-                >
-                  + Comedy
-                </button>
-                <button
-                  className="actionBtn"
-                  disabled={duplicateMoviesPrevention}
-                  onClick={() => handleOnClick("action")}
-                >
-                  + Action
-                </button>
-              </div>
-             
-             
-            </div>
-          </Col> */}
             </Row>
             {/* STAR RATING */}
 
