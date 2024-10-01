@@ -30,13 +30,13 @@ A web application to view movie trailers, get movie details, and manage a person
 1. Clone the repository:
 
     ```
-    git clone https://github.com/your-username/movie-tracker-website.git
+    git clone https://github.com/snagila/CineHaven.git
     ```
 
 2. Navigate into the project directory:
 
     ```
-    cd movie-tracker-website
+    cd CineHaven
     ```
 
 3. Install dependencies:
