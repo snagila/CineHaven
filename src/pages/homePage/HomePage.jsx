@@ -56,29 +56,24 @@ const HomePage = () => {
     <>
       <Header1 />
       <Hero movie={upComingMovies} />
-      {inCinema && (
-        <ScrollTable
-          movieArray={inCinema}
-          title={"In Cinemas"}
-          isLoading={isLoading}
-        />
-      )}
 
-      {upComingMovies && (
-        <ScrollTable
-          movieArray={upComingMovies}
-          title={"UpComing Movies"}
-          isLoading={isLoading}
-        />
-      )}
+      <ScrollTable
+        movieArray={inCinema}
+        title={"In Cinemas"}
+        isLoading={isLoading}
+      />
 
-      {trending && (
-        <ScrollTable
-          movieArray={trending}
-          title={"Trending This Week"}
-          isLoading={isLoading}
-        />
-      )}
+      <ScrollTable
+        movieArray={upComingMovies}
+        title={"UpComing Movies"}
+        isLoading={isLoading}
+      />
+
+      <ScrollTable
+        movieArray={trending}
+        title={"Trending This Week"}
+        isLoading={isLoading}
+      />
     </>
   );
 };

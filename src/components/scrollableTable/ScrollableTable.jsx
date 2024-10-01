@@ -35,7 +35,10 @@ const ScrollTable = ({ movieArray, title, isLoading }) => {
                 {isLoading ? (
                   <SpinnerComp />
                 ) : (
-                  <Card onClick={() => handleOnClick(item.id)}>
+                  <Card
+                    onClick={() => handleOnClick(item.id)}
+                    style={{ backgroundColor: "black" }}
+                  >
                     {item.poster_path ? (
                       <Card.Img
                         src={

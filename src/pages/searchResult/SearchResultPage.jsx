@@ -82,7 +82,7 @@ const SearchResultPage = () => {
             <Row className="pb-4  d-flex  justify-content-center">
               {/* movie image */}
               <Col md={3} className="movie-image-col">
-                {searchedMovie.poster_path ? (
+                {searchedMovie?.poster_path ? (
                   <Image
                     src={
                       "https://image.tmdb.org/t/p/original" +

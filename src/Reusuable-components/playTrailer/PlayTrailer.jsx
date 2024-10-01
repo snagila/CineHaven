@@ -10,7 +10,6 @@ const PlayTrailer = ({ id, sound }) => {
 
   const fetchVideo = async () => {
     try {
-      setIsLoading(true);
       const response = await fetch(movieVideoUrl);
       const data = await response.json();
 
@@ -19,18 +18,14 @@ const PlayTrailer = ({ id, sound }) => {
           setVideo_key(
             data.results.filter((video) => video.type === "Trailer")[0].key
           );
-          setIsLoading(false);
         } else {
           console.log("Video key not found in the API response");
-          setIsLoading(false);
         }
       } else {
         console.log("Error fetching video data:", data);
-        setIsLoading(false);
       }
     } catch (error) {
       console.log("Error fetching video:", error);
-      setIsLoading(false);
     }
   };
   useEffect(() => {
@@ -52,11 +47,7 @@ const PlayTrailer = ({ id, sound }) => {
         </div>
       ) : (
         <h1 className="text-center error-message">
-          {loading ? (
-            <Spinner animation="border" role="status" />
-          ) : (
-            "Sorry this movie video is not available right now"
-          )}
+          {"Sorry this movie video is not available right now"}
         </h1>
       )}
     </>

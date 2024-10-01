@@ -3,7 +3,6 @@ import "./allResults.css";
 import Header1 from "../../Reusuable-components/header/Header1";
 import { useParams } from "react-router-dom";
 import MovieDisplayCard from "../../components/movieTable/MovieDisplayCard";
-import SpinnerComp from "../../Reusuable-components/SpinnerComp";
 
 const AllResults = () => {
   const [allSearchedMovies, setAllSearchedMovies] = useState([]);
@@ -23,13 +22,11 @@ const AllResults = () => {
   return (
     <>
       <Header1 />
-      {!allSearchedMovies && <SpinnerComp />}
-      {allSearchedMovies && (
-        <MovieDisplayCard
-          allMovies={allSearchedMovies}
-          title={`Search result for "${id}"`}
-        />
-      )}
+
+      <MovieDisplayCard
+        allMovies={allSearchedMovies}
+        title={`Search result for "${id}"`}
+      />
     </>
   );
 };
