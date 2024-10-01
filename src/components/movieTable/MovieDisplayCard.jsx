@@ -11,17 +11,6 @@ const MovieDisplayCard = ({ allMovies, title }) => {
 
   return (
     <>
-      {!allMovies && (
-        <div
-          style={{
-            marginTop: "4vh",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <Spinner animation="border" role="status" />
-        </div>
-      )}
       {allMovies && (
         <div
           style={{

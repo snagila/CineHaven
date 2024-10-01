@@ -3,6 +3,7 @@ import ScrollTable from "../../components/scrollableTable/ScrollableTable";
 import Header1 from "../../Reusuable-components/header/Header1";
 import "./homepage.css";
 import Hero from "./Hero";
+import SpinnerComp from "../../Reusuable-components/SpinnerComp";
 
 const HomePage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -55,22 +56,29 @@ const HomePage = () => {
     <>
       <Header1 />
       <Hero movie={upComingMovies} />
+      {inCinema && (
+        <ScrollTable
+          movieArray={inCinema}
+          title={"In Cinemas"}
+          isLoading={isLoading}
+        />
+      )}
 
-      <ScrollTable
-        movieArray={inCinema}
-        title={"In Cinemas"}
-        isLoading={isLoading}
-      />
-      <ScrollTable
-        movieArray={upComingMovies}
-        title={"UpComing Movies"}
-        isLoading={isLoading}
-      />
-      <ScrollTable
-        movieArray={trending}
-        title={"Trending This Week"}
-        isLoading={isLoading}
-      />
+      {upComingMovies && (
+        <ScrollTable
+          movieArray={upComingMovies}
+          title={"UpComing Movies"}
+          isLoading={isLoading}
+        />
+      )}
+
+      {trending && (
+        <ScrollTable
+          movieArray={trending}
+          title={"Trending This Week"}
+          isLoading={isLoading}
+        />
+      )}
     </>
   );
 };

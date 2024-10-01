@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { MyContext } from "../../DataContext";
 import Header1 from "../../Reusuable-components/header/Header1";
 import MovieDisplayCard from "./MovieDisplayCard";
+import SpinnerComp from "../../Reusuable-components/SpinnerComp";
 
 const MovieToWatch = () => {
   const { toWatchMovies, setToWatchMovies } = useContext(MyContext);
@@ -9,7 +10,10 @@ const MovieToWatch = () => {
   return (
     <>
       <Header1 />
-      <MovieDisplayCard allMovies={toWatchMovies} title={"Movies To Watch"} />
+      {toWatchMovies && (
+        <MovieDisplayCard allMovies={toWatchMovies} title={"Movies To Watch"} />
+      )}
+      {!toWatchMovies && <SpinnerComp />}
     </>
   );
 };
